@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Mum 💐</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffdee9, #b5fffc);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        width: 90%;
+        max-width: 420px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        animation: popIn 1s ease;
+        z-index: 2;
+    }
+
+    h1 {
+        color: #e91e63;
+        animation: pulse 2s infinite;
+    }
+
+    #sweetMessage {
+        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #444;
+    }
+
+    #surprise {
+        margin-top: 20px;
+        font-size: 18px;
+        line-height: 1.7;
+        animation: fadeInUp 2s ease;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        background: #e91e63;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.5); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .flower {
+        position: absolute;
+        font-size: 24px;
+        animation: float 8s linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes float {
+        from { transform: translateY(100vh) rotate(0deg); }
+        to { transform: translateY(-10vh) rotate(360deg); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>💐 For My Mum 💐</h1>
+
+    <!-- Always visible sweet message -->
+    <div id="sweetMessage">
+        Mum, you are my strength, my guide, and my biggest blessing 💖<br>
+        Your love, sacrifices, and kindness mean the world to me.
+    </div>
+
+    <!-- Button to reveal the surprise message -->
+    <button id="revealButton">Tap for a Surprise 💝</button>
+
+    <div id="surprise" class="hidden">
+        I am so proud to be your child.<br>
+        I love you today and always ❤️<br><br>
+        To many more years together 🌸<br><br>
+        — JUSTIN
+    </div>
+</div>
+
+<script>
+    // Ensure the button works
+    document.getElementById("revealButton").addEventListener("click", function() {
+        document.getElementById("surprise").classList.remove("hidden");
+        this.style.display = "none"; // hide the button after click
+    });
+
+    // Create floating flowers
+    for (let i = 0; i < 20; i++) {
+        let flower = document.createElement("div");
+        flower.className = "flower";
+        flower.innerHTML = "🌸";
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.animationDuration = (5 + Math.random() * 5) + "s";
+        document.body.appendChild(flower);
+    }
+</script>
+
+</body>
+</html>
